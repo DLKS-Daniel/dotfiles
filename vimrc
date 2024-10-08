@@ -1,6 +1,7 @@
 " General
 let maplocalleader=","
 let mapleader=" "
+set hidden
 set updatetime=100
 set signcolumn=yes
 set mouse=a
@@ -9,7 +10,7 @@ set termguicolors
 set t_Co=256
 set cursorline
 set background=dark
-colorscheme retrobox
+colorscheme desert
 
 " Directory specification
 set viminfo='50,f1,<500,n~/.vim/viminfo
@@ -46,9 +47,10 @@ set clipboard=unnamed
 
 " Search completion in the vim terminal
 set wildmenu
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set showcmd
 set showmatch
+set pumheight=7
 
 " Search with / 
 set hlsearch
@@ -70,7 +72,9 @@ call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-surround'
+Plug 'shime/vim-livedown'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 

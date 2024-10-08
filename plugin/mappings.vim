@@ -30,6 +30,9 @@ inoremap <C-V> <Esc>p
 " Format and detect JSON
 nnoremap <leader>js ma:%!jq '.'<cr>'a
 
+" Preview HTML
+nnoremap <leader>pv :LivedownToggle<cr>
+
 " Copy all items - sets mark, goes to top, V to bot, yank then back to mark
 nnoremap <leader>ca mbggVGy'b
 
@@ -47,12 +50,6 @@ nnoremap <leader>wh :new<cr>
 nnoremap <leader>we :vnew<cr>:Ex<cr>
 nnoremap <leader>wq :wincmd q<cr>
 
-" Split navigation
-nnoremap <silent> <C-H> :wincmd h<cr>
-nnoremap <silent> <C-J> :wincmd j<cr>
-nnoremap <silent> <C-K> :wincmd k<cr>
-nnoremap <silent> <C-L> :wincmd l<cr>
-
 " Tab navigation
 nnoremap <silent> <C-Tab> :tabnext<CR>
 nnoremap <silent> <C-S-Tab> :tabpre<CR>
@@ -68,8 +65,8 @@ nnoremap <localleader>h :help<cr>:wincmd T<cr>
 
 " vimrc and coc.nvim config shortcuts
 nnoremap <localleader>. :source $MYVIMRC<cr>
-nnoremap <localleader>cn :tabnew<cr>:edit $MYVIMRC<cr> 
-nnoremap <localleader>cc :tabnew<cr>:CocConfig<cr>
+nnoremap <localleader>cn :edit $MYVIMRC<cr> 
+nnoremap <localleader>cc :CocConfig<cr>
 nnoremap <localleader>cm :CocList marketplace<cr>
 
 " Emacs navigation for commandline
