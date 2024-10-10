@@ -1,11 +1,8 @@
 {
-	"coc.preferences.extensionUpdateCheck": "weekly",
-	"suggest.noselect": true,
-	"suggest.enablePreselect": false,
 	"suggest.triggerAfterInsertEnter": true,
-	"coc.preferences.formatOnSaveFiletypes": [
-		"css",
-		"markdown",
-		"json"
-	]
+	"suggest.enableFloat": true,
+	"suggest.minTriggerInputLength": 2,
+	"[css][markdown][json]": {
+		"coc.preferences.formatOnSave": true
+	}
 }

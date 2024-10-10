@@ -33,4 +33,3 @@ noremap <silent> <leader>fb :Buffers<CR>
 noremap <silent> <leader>ff :Files<CR>
 noremap <silent> <leader>fs :Files /c/Users/DLKS/Code/<CR>
 noremap <silent> <leader>fg :Rg<CR>
-noremap <silent> <leader>fw :Rg <C-R><C-W><CR>
