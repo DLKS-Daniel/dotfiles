@@ -1,6 +1,14 @@
 " Motion rebinds
 nnoremap <CR> :nohlsearch<CR><CR>:<backspace>
 
+" Change wincmd Split
+nnoremap <C-W>v :vnew<cr>
+nnoremap <C-W>s :new<cr>
+nnoremap <C-W>e :enew<cr>
+nnoremap <C-W><C-V> :vnew<cr>
+nnoremap <C-W><C-S> :new<cr>
+nnoremap <C-W><C-E> :enew<cr>
+
 " j + j to exit cmd and insert
 inoremap jj <esc>
 cnoremap jj <esc>
@@ -14,14 +22,12 @@ nnoremap <silent> k gk
 nnoremap <silent> j gj
 
 " end and start line
-nnoremap <leader>e $
-vnoremap <leader>e $
 nnoremap <leader>q ^
 vnoremap <leader>q ^
 
 " Command line
-nnoremap <leader>cc :
-vnoremap <leader>cc :
+nnoremap <leader>c :
+vnoremap <leader>c :
 
 " To prevent windows terminal and its slow ass paste
 nnoremap <C-V> p
@@ -41,14 +47,6 @@ nnoremap <leader>sr :%s/\c\<<C-R><C-W>\>//g<Left><Left>
 
 " Show fold column
 nnoremap <leader>fc :call FoldColumnToggle()<cr>
-
-" Open and close windows + tabs
-nnoremap <leader>tt :tabnew<CR>
-nnoremap <leader>te :tabnew<CR>:Ex<CR>
-nnoremap <leader>ww :vnew<cr>
-nnoremap <leader>wh :new<cr>
-nnoremap <leader>we :vnew<cr>:Ex<cr>
-nnoremap <leader>wq :wincmd q<cr>
 
 " Tab navigation
 nnoremap <silent> <C-Tab> :tabnext<CR>

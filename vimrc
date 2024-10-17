@@ -6,10 +6,7 @@ set updatetime=100
 set signcolumn=yes
 set mouse=a
 set nocompatible
-set termguicolors
-set t_Co=256
 set cursorline
-set background=dark
 colorscheme desert
 
 " Directory specification
