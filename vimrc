@@ -13,6 +13,12 @@ colorscheme desert
 set viminfo='50,f1,<500,n~/.vim/viminfo
 set undodir=n~/.vim/undo
 
+" netrw
+" Change directory to the current buffer when opening files.
+set autochdir
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+
 " Split	preferences
 set splitright
 set splitbelow
@@ -46,8 +52,8 @@ set clipboard=unnamed
 " Buffer navigation
 set wildmenu wildmode=full
 set wildcharm=<C-Z>
-nnoremap <leader>bg :b <C-Z>
-nnoremap <leader>bl :buffers<cr>
+nnoremap <leader>b :buffer <C-Z>
+nnoremap <leader>ls :buffers<cr>
 
 " Completion opt
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
