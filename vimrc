@@ -43,7 +43,13 @@ set undofile
 set clipboard=unnamed
 
 " Search completion in the vim terminal
-set wildmenu
+" Buffer navigation
+set wildmenu wildmode=full
+set wildcharm=<C-Z>
+nnoremap <leader>bg :b <C-Z>
+nnoremap <leader>bl :buffers<cr>
+
+" Completion opt
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set showcmd
 set showmatch
@@ -71,7 +77,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-surround'
-Plug 'shime/vim-livedown'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
