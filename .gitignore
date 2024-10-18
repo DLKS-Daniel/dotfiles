@@ -1,0 +1,8 @@
+# Directories
+plugged/
+autoload/
+colors/
+
+# Files
+.netrwhist
+viminfo
