@@ -19,15 +19,9 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-let g:fzf_action = {
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit',
-  \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
-
-" Delete buffers
 let s:default_action = {
             \ 'ctrl-t': 'tab split',
-            \ 'ctrl-x': 'split',
+            \ 'ctrl-s': 'split',
             \ 'ctrl-v': 'vsplit' }
 function! s:action_for(key, ...)
     let default = a:0 ? a:1 : ''
@@ -72,7 +66,7 @@ function! s:buffers_sink(lines, query, fullscreen)
         return
     endif
     if action==?'ctrl-d'
-        execute 'bdelete' b
+        execute 'bdelete!' b
         call s:custom_buffer(a:query, a:fullscreen)
     else
         let cmd = s:action_for(action)
@@ -99,7 +93,7 @@ command! -bar -bang -nargs=? -complete=dir FzfxBuffers call s:custom_buffer(<q-a
 
 " Keybindings
 noremap <silent> <leader>fl :Lines<CR>
-noremap <silent> <leader>fb :Buffers<CR>
+noremap <silent> <leader>fb :FzfxBuffers<CR>
 noremap <silent> <leader>ff :Files<CR>
 noremap <silent> <leader>fs :Files
 noremap <silent> <leader>fg :Rg<CR>

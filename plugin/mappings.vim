@@ -1,5 +1,8 @@
 " Motion rebinds
 nnoremap <CR> :nohlsearch<CR><CR>:<backspace>
+nnoremap U <C-R>
+nnoremap <C-Z> <Esc>
+vnoremap <C-Z> <Esc>
 
 " Change wincmd Split
 nnoremap <C-W>v :vnew<cr>
@@ -35,9 +38,6 @@ inoremap <C-V> <Esc>p
 
 " Format and detect JSON
 nnoremap <leader>js ma:%!jq '.'<cr>'a
-
-" Preview HTML
-nnoremap <leader>pv :LivedownToggle<cr>
 
 " Copy all items - sets mark, goes to top, V to bot, yank then back to mark
 nnoremap <leader>ca mbggVGy'b
