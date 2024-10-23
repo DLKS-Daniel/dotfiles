@@ -52,7 +52,8 @@ set clipboard=unnamed
 " Buffer navigation
 set wildmenu wildmode=full
 set wildcharm=<C-Z>
-nnoremap <leader>b :buffer <C-Z>
+nnoremap <leader>bf :buffer <C-Z>
+nnoremap <leader>bd :BD<cr>
 nnoremap <leader>ls :buffers<cr>
 
 " Completion opt
@@ -79,10 +80,14 @@ set textwidth=119
 " Plugin management
 call plug#begin()
 
+Plug 'rose-pine/vim'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'raimondi/delimitmate'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
