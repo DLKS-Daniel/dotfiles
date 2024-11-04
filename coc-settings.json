@@ -1,7 +1,7 @@
 {
 	"suggest.triggerAfterInsertEnter": true,
 	"suggest.enableFloat": true,
-	"[c][css][markdown][json]": {
+	"[c][css][markdown][json][html][py]": {
 		"coc.preferences.formatOnSave": true
 	}
 }
