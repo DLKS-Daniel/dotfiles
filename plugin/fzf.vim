@@ -27,7 +27,7 @@ function! s:list_buffers()
 endfunction
 
 function! s:delete_buffers(lines)
-  execute 'bdelete' join(map(a:lines, {_, line -> split(line)[0]}))
+  execute 'bdelete!' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
 
 command! BD call fzf#run(fzf#wrap({
