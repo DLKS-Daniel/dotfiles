@@ -1,12 +1,13 @@
 " General
-let maplocalleader=","
 let mapleader=" "
+let maplocalleader=","
 set hidden
 set updatetime=100
 set signcolumn=yes
 set mouse=a
 set nocompatible
 set cursorline
+set termguicolors
 colorscheme desert
 
 " Directory specification
@@ -54,7 +55,7 @@ set wildmenu wildmode=full
 set wildcharm=<C-Z>
 nnoremap <leader>bf :buffer <C-Z>
 nnoremap <leader>bd :BD<cr>
-nnoremap <leader>ls :buffers<cr>
+nnoremap <silent> <localleader>a :args<CR>
 
 " Completion opt
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
@@ -62,7 +63,7 @@ set showcmd
 set showmatch
 set pumheight=7
 
-" Search with / 
+" Search with /
 set hlsearch
 set incsearch
 set ignorecase
@@ -80,15 +81,27 @@ set textwidth=119
 " Plugin management
 call plug#begin()
 
-Plug 'rose-pine/vim'
+" colorscheme
+Plug 'joshdick/onedark.vim'
 
+" LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'airblade/vim-gitgutter'
-Plug 'raimondi/delimitmate'
 Plug 'sheerun/vim-polyglot'
+
+" motions
+Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-surround'
-Plug 'vimwiki/vimwiki'
+
+" others
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
+" journaling
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
+
 call plug#end()
+
+" Manpages
+runtime! ftplugin/man.vim
