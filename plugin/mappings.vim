@@ -6,6 +6,14 @@ vnoremap <C-Z> <Esc>
 nnoremap <C-E> :
 vnoremap <C-E> :
 
+" indentation made easy
+nnoremap > >>
+nnoremap < <<
+
+" Open vim manpages with CTRL-K
+set keywordprg=:Man 
+nnoremap <silent> <C-K> K :set nowrap<cr>
+
 " Directories and registers
 nnoremap <leader>ls :buffers<cr>
 nnoremap <leader>cd :cd<Space>
@@ -15,9 +23,15 @@ nnoremap <leader>r :registers<cr>
 nnoremap <C-W>v :vnew<cr>
 nnoremap <C-W>s :new<cr>
 nnoremap <C-W>e :enew<cr>
+nnoremap <C-W>t :tabnew<cr>
 nnoremap <C-W><C-V> :vnew<cr>
 nnoremap <C-W><C-S> :new<cr>
 nnoremap <C-W><C-E> :enew<cr>
+nnoremap <C-W><C-T> :tabnew<cr>
+
+" Switch tabs
+nnoremap <C-W><Tab> :tabnext<cr>
+nnoremap <C-W><S-Tab> :tabprevious<cr>
 
 " Move in insert
 inoremap <C-H> <Left>
@@ -52,16 +66,17 @@ nnoremap <leader>js ma:%!jq '.'<cr>'a
 nnoremap <leader>ca mbggVGy'b
 
 " Replace all instances of selection
-nnoremap <leader>sr :%s/\c\<<C-R><C-W>\>//g<Left><Left>
+" (saves a yoink to register 9 and pastes with CTRL-R + 9
+vnoremap <leader>rw "9y:%s/<c-r>9/<c-r>9/g<left><left>
+nnoremap <leader>rw viw"9y:%s/<c-r>9/<c-r>9/g<left><left>
+vnoremap <leader>rl "9y:s/<c-r>9/<c-r>9/g<left><left>
+nnoremap <leader>rl viw"9y:s/<c-r>9/<c-r>9/g<left><left>
+
 " Clear whitespace
 nnoremap <leader>dw :%s/\s\+$//<cr>
 
 " Show fold column
 nnoremap <leader>fc :call FoldColumnToggle()<cr>
-
-" Tab navigation
-nnoremap <silent> <C-Tab> :tabnext<CR>
-nnoremap <silent> <C-S-Tab> :tabpre<CR>
 
 " local leader things
 nnoremap <localleader>e :Explore<cr>
