@@ -8,11 +8,10 @@ set mouse=a
 set nocompatible
 set cursorline
 set termguicolors
-colorscheme desert
+colorscheme darkblue
 
 " Directory specification
 set viminfo='50,f1,<500,n~/.vim/viminfo
-set undodir=n~/.vim/undo
 
 " netrw
 " Change directory to the current buffer when opening files.
@@ -94,6 +93,7 @@ Plug 'tpope/vim-surround'
 
 " others
 Plug 'airblade/vim-gitgutter'
+Plug 'pablopunk/statusline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
