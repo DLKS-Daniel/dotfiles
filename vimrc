@@ -86,6 +86,7 @@ Plug 'joshdick/onedark.vim'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-scripts/spss-syntax-highlighting-file'
 Plug 'sheerun/vim-polyglot'
 
 " motions
