@@ -30,3 +30,6 @@ augroup CursorLine
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     au WinLeave * setlocal nocursorline
 augroup END
+
+" Load SPSS syntax
+au BufNewFile,BufRead *.sps set filetype=spss
