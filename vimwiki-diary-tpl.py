@@ -11,7 +11,7 @@ template = f"""# {d1}
 
 ## Todo
 
-- [ ]
+* [ ]
 """
 
 print(template)
