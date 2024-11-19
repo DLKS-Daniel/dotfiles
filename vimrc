@@ -8,7 +8,7 @@ set mouse=a
 set nocompatible
 set cursorline
 set termguicolors
-colorscheme desert
+colorscheme evening
 
 " Directory specification
 set viminfo='50,f1,<500,n~/.vim/viminfo
@@ -81,9 +81,6 @@ set textwidth=119
 " Plugin management
 call plug#begin()
 
-" colorscheme
-Plug 'joshdick/onedark.vim'
-
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/spss-syntax-highlighting-file'
@@ -98,6 +95,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'itchyny/lightline.vim'
+Plug 'shime/vim-livedown'
 
 " journaling
 Plug 'vimwiki/vimwiki'
