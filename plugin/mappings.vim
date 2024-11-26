@@ -3,8 +3,11 @@ nnoremap <CR> :nohlsearch<CR><CR>:<backspace>
 nnoremap U <C-R>
 nnoremap <C-Z> <Esc>
 vnoremap <C-Z> <Esc>
+
+" Quick CMD-line access
 nnoremap <C-E> :
 vnoremap <C-E> :
+inoremap <C-E> :
 
 " indentation made easy
 nnoremap > >>
@@ -41,7 +44,6 @@ inoremap <C-J> <Down>
 
 " j + j to exit cmd and insert
 inoremap jj <esc>
-cnoremap jj <esc>
 
 " Move lines up and down
 nnoremap - ddp
@@ -98,3 +100,9 @@ cnoremap <C-B> <Left>
 cnoremap <C-F> <Right>
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
+
+"shift arrows to resize splits
+nnoremap <s-Right> :vertical resize +5 <CR>
+nnoremap <s-LEFT> :vertical resize -5 <CR>
+nnoremap <s-UP> :resize +5 <CR>
+nnoremap <s-DOWN> :resize -5 <CR>
