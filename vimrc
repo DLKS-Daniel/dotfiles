@@ -10,14 +10,32 @@ set cursorline
 set termguicolors
 colorscheme evening
 
-" Directory specification
+" Directory specification and undo history
 set viminfo='50,f1,<500,n~/.vim/viminfo
-set undodir=$XDG_DATA_HOME/vim/undo
+
+function! EnsureVimhisExists()
+    let vimhis_path = expand('~/.vim/history')
+
+    if !isdirectory(vimhis_path)
+        call mkdir(vimhis_path, 'p')
+        echo "Created directory: " . vimhis_path
+    " else
+        " echo "Directory already exists: " . vimhis_path
+    endif
+endfunction
+call EnsureVimhisExists()
+
+if has('persistent_undo')
+	set undodir=$HOME/.vim/history
+	set undolevels=5000
+	set undofile
+endif
 
 " netrw
 " Change directory to the current buffer when opening files.
 set autochdir
 let g:netrw_banner=0
+let g:netrw_keepdir=0
 let g:netrw_liststyle=3
 
 " Split	preferences
@@ -80,7 +98,7 @@ set textwidth=119
 
 " Plugin management
 call plug#begin()
-
+Plug 'lunacookies/vim-colors-xcode'
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/spss-syntax-highlighting-file'
