@@ -2,6 +2,7 @@
 plugged/
 autoload/
 colors/
+history/
 
 # Files
 .netrwhist
