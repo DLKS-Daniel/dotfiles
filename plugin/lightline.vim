@@ -1,5 +1,6 @@
-
+" Lightline statusbar
 let g:lightline = {
+			\ 'colorscheme': 'codedark',
 			\ 'active': {
 			\ 'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ], ['syntaxitem'], ['bufnum' ] ],
 			\ 'left': [ [ 'mode' ], [ 'readonly' ], [ 'absolutepath' ], [ 'modified' ], [ 'gitbranch' ] ],
@@ -18,3 +19,6 @@ let g:lightline = {
 			\   'buffers': 'tabsel'
 			\ }
 			\ }
+
+let g:lightline.separator={ 'left': "\ue0b0", 'right': "\ue0b2" }
+let g:lightline.subseparator={ 'left': "\ue0b1", 'right': "\ue0b3" }
