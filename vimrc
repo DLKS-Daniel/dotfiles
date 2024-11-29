@@ -1,5 +1,5 @@
 " General
-let mapleader=" "
+let mapleader="\<Space>"
 let maplocalleader=","
 set hidden
 set updatetime=100
@@ -8,19 +8,18 @@ set mouse=a
 set nocompatible
 set cursorline
 set termguicolors
-colorscheme evening
+set t_Co=256
+set t_ut=
+colorscheme codedark
 
 " Directory specification and undo history
 set viminfo='50,f1,<500,n~/.vim/viminfo
-
 function! EnsureVimhisExists()
     let vimhis_path = expand('~/.vim/history')
 
     if !isdirectory(vimhis_path)
         call mkdir(vimhis_path, 'p')
         echo "Created directory: " . vimhis_path
-    " else
-        " echo "Directory already exists: " . vimhis_path
     endif
 endfunction
 call EnsureVimhisExists()
@@ -70,16 +69,9 @@ set clipboard=unnamed
 " Search completion in the vim terminal
 " Buffer navigation
 set wildmenu wildmode=full
-set wildcharm=<C-Z>
-nnoremap <leader>bf :buffer <C-Z>
-nnoremap <leader>bd :BD<cr>
-nnoremap <silent> <localleader>a :args<CR>
-
-" Completion opt
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*\\tmp\\*,*.swp,*.zip
 set showcmd
 set showmatch
-set pumheight=7
 
 " Search with /
 set hlsearch
@@ -98,7 +90,9 @@ set textwidth=119
 
 " Plugin management
 call plug#begin()
-Plug 'lunacookies/vim-colors-xcode'
+" Colorschemes
+Plug 'tomasiser/vim-code-dark'
+
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/spss-syntax-highlighting-file'
@@ -109,9 +103,8 @@ Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-surround'
 
 " others
+Plug 'Donaldttt/fuzzyy'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'itchyny/lightline.vim'
 Plug 'shime/vim-livedown'
 
