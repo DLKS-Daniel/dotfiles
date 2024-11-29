@@ -4,6 +4,11 @@ nnoremap U <C-R>
 nnoremap <C-Z> <Esc>
 vnoremap <C-Z> <Esc>
 
+" Switch Buffers
+nnoremap <PageUp> :bn<Cr>
+nnoremap <PageDown> :bp<CR>
+nnoremap <Del> :bd<CR>
+
 " Quick CMD-line access
 nnoremap <C-E> :
 vnoremap <C-E> :
@@ -14,8 +19,8 @@ nnoremap > >>
 nnoremap < <<
 
 " Open vim manpages with CTRL-K
-set keywordprg=:Man 
-nnoremap <silent> <C-K> K :set nowrap<cr>
+"set keywordprg=:Man 
+"nnoremap <silent> <C-K> K :set nowrap<cr>
 
 " Directories and registers
 nnoremap <leader>ls :buffers<cr>
@@ -35,6 +40,18 @@ nnoremap <C-W><C-T> :tabnew<cr>
 " Switch tabs
 nnoremap <C-W><Tab> :tabnext<cr>
 nnoremap <C-W><S-Tab> :tabprevious<cr>
+"Keybindings for tab navigation with leader and number
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 :tablast<CR>
+nnoremap <leader>x :tabclose<CR>
 
 " Move in insert
 inoremap <C-H> <Left>
@@ -43,11 +60,11 @@ inoremap <C-K> <Up>
 inoremap <C-J> <Down>
 
 " j + j to exit cmd and insert
-inoremap jj <esc>
+inoremap <nowait> jj <esc>
 
 " Move lines up and down
-nnoremap - ddp
-nnoremap _ ddkP
+nnoremap - :m .+1<CR>
+nnoremap _ :m .-2<CR>
 
 " navigate wrapped lines
 nnoremap <silent> k gk
@@ -65,7 +82,7 @@ inoremap <C-V> <Esc>p
 nnoremap <leader>js ma:%!jq '.'<cr>'a
 
 " Copy all items - sets mark, goes to top, V to bot, yank then back to mark
-nnoremap <leader>ca mbggVGy'b
+nnoremap <localleader>ca mbggVGy'b
 
 " Replace all instances of selection
 " (saves a yoink to register 9 and pastes with CTRL-R + 9
