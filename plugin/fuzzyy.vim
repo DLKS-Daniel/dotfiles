@@ -6,7 +6,7 @@ nnoremap <silent> <leader>fi :FuzzyCommands<CR>
 nnoremap <silent> <leader>fg :FuzzyGrep<CR>
 nnoremap <silent> <leader>fb :FuzzyBuffers<CR>
 nnoremap <silent> <leader>fh :FuzzyHighlights<CR>
-nnoremap <silent> <leader>fm :FuzzyMRUFiles<CR>
+nnoremap <silent> <leader>fr :FuzzyMRUFiles<CR>
 
 " Set to 0 to disable default keybindings
 " Default to 1

@@ -95,7 +95,7 @@ nnoremap <leader>rl viw"9y:s/<c-r>9/<c-r>9/g<left><left>
 nnoremap <leader>dw :%s/\s\+$//<cr>
 
 " Show fold column
-nnoremap <leader>fc :call FoldColumnToggle()<cr>
+nnoremap <localleader>fc :call FoldColumnToggle()<cr>
 
 " local leader things
 nnoremap <localleader>e :Explore<cr>
