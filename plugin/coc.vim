@@ -40,6 +40,7 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-html',
   \ 'coc-css',
+  \ 'coc-jedi',
   \ 'coc-marketplace'
 \ ]
 
