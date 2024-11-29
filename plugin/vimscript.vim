@@ -33,3 +33,24 @@ augroup END
 
 " Load SPSS syntax
 au BufNewFile,BufRead *.sps set filetype=spss
+
+" Run code in buffer
+function! CodeRunner()
+    if &ft ==# 'python'
+        execute 'RPy'
+    elseif &ft ==# 'sh'
+        execute 'RB'
+	elseif &ft ==# 'javascript'
+		execute 'RJs'
+	elseif &ft ==# 'go'
+		execute 'RGo'
+    endif
+endfunction
+
+augroup code_runner
+    au!
+    au FileType python command! RPy :!python3 %
+    au FileType sh command! RB :!bash %
+		au FileType javascript command! RJs :!node %
+    nnoremap <F12> :call CodeRunner()<CR>
+augroup end
