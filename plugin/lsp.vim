@@ -1,65 +1,76 @@
 " CoC.nvim settings
-" Tab completion
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><s-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<c-h>"
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" Enhanced <CR> for pairs
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Disable < expansion for pairs
+autocmd FileType * let b:coc_pairs_disabled = ["<"]
 
-" GoTo code navigation
+" on demand hover diagnostics 
+nnoremap <silent> <leader>? :call CocAction('diagnosticInfo') <CR>
+" refresh 
+" nnoremap <silent><expr> \co coc#refresh()
+ nnoremap <silent> \rc :CocRestart<CR>
+"===[ Coc-Explorer ]==="
+" set up coc-explorer to open in the current directory
+let g:coc_explorer_global_mirror = 0
+let g:coc_explorer_disable_default_keybindings = 1
+let g:coc_explorer_global_root = 'current'
+nnoremap <leader>e <Cmd>CocCommand explorer<CR>
+
+"===[ Coc Global Extensions ]==="
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-clangd',
+  \ 'coc-sh',
+  \ 'coc-json',
+  \ 'coc-vimlsp',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-marketplace'
+\ ]
+
+" Navigations
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"
+" List code actions available for the current buffer
+nmap <leader>ca  <Plug>(coc-codeaction)
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
+" Add `:Format` command to format current buffer
+command! -nargs=0 Format :call CocActionAsync('format')
 " Formatting selected code
-xmap <localleader>f  <Plug>(coc-format-selected)
-nmap <localleader>f  <Plug>(coc-format-selected)
+vmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s)
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+" coc-pairs
+" disable characters for a specified filetypes
+autocmd FileType markdown let b:coc_pairs_disabled = ['txt']

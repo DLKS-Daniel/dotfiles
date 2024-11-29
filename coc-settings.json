@@ -8,8 +8,7 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
-		"python",
-    "html",
+    "python", "html",
     "javascript",
     "json"
   ]
