@@ -7,7 +7,7 @@ vnoremap <C-Z> <Esc>
 " Switch Buffers
 nnoremap <PageUp> :bn<Cr>
 nnoremap <PageDown> :bp<CR>
-nnoremap <Del> :bd<CR>
+nnoremap <Del> <Plug>Kwbd
 
 " Quick CMD-line access
 nnoremap <C-E> :
