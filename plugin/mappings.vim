@@ -18,6 +18,9 @@ inoremap <C-E> :
 nnoremap > >>
 nnoremap < <<
 
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
 " Open vim manpages with CTRL-K
 "set keywordprg=:Man 
 "nnoremap <silent> <C-K> K :set nowrap<cr>
