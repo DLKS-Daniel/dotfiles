@@ -28,8 +28,8 @@ let g:fuzzyy_files_ignore_dir = ['.git', '.hg', '.svn', '.rebar', '.eunit']
 " Change navigation keymaps
 " The following is the default
 let g:fuzzyy_keymaps = {
-\     'menu_up': ["\<c-k>", "\<Up>"],
-\     'menu_down': ["\<c-j>", "\<Down>"],
+\     'menu_up': ["\<c-p>", "\<Up>"],
+\     'menu_down': ["\<c-n>", "\<Down>"],
 \     'menu_select': ["\<CR>"],
 \     'preview_up': ["\<c-i>"],
 \     'preview_down': ["\<c-f>"],
