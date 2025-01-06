@@ -101,6 +101,7 @@ Plug 'sheerun/vim-polyglot'
 " motions
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
 " others
 Plug 'Donaldttt/fuzzyy'
