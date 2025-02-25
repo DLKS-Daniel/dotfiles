@@ -108,6 +108,7 @@ Plug 'Donaldttt/fuzzyy'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'shime/vim-livedown'
+Plug 'gcmt/taboo.vim'
 
 " journaling
 Plug 'vimwiki/vimwiki'
