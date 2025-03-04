@@ -23,7 +23,7 @@ let g:files_respect_gitignore = 1
 " only work when g:files_respect_gitignore = 0
 " The following is the default
 let g:fuzzyy_files_ignore_file = ['*.beam', '*.so', '*.exe', '*.dll', '*.dump', '*.core', '*.swn', '*.swp']
-let g:fuzzyy_files_ignore_dir = ['.git', '.hg', '.svn', '.rebar', '.eunit']
+let g:fuzzyy_files_ignore_dir = ['.git', '.hg', '.svn', '.rebar', '.eunit', '.config/coc', '.vim/plugged', '.vim/history', '.vscode']
 
 " Change navigation keymaps
 " The following is the default

@@ -86,12 +86,12 @@ set linebreak
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set textwidth=119
 
 " Plugin management
 call plug#begin()
 " Colorschemes
 Plug 'tomasiser/vim-code-dark'
+Plug 'devsjc/vim-jb'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -103,11 +103,13 @@ Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
-" others
+" visual views
+Plug 'shime/vim-livedown'
+
+" quality of life
 Plug 'Donaldttt/fuzzyy'
 Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
-Plug 'shime/vim-livedown'
+Plug 'kshenoy/vim-signature'
 Plug 'gcmt/taboo.vim'
 
 " journaling
