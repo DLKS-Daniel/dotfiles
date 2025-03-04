@@ -1,11 +1,29 @@
+" Function that lists named and unamed buffers
+function! BufferList()
+    let buffers = []
+    for buf in range(1, bufnr('$'))
+        if bufexists(buf) && buflisted(buf)
+            let bufname = bufname(buf) ==# '' ? '[No Name]' : bufname(buf)
+            let mod = getbufvar(buf, '&modified') ? '[+]' : ''
+            call add(buffers, printf('%d:%s%s', buf, fnamemodify(bufname, ':t'), mod))
+        endif
+    endfor
+    return join(buffers, ' | ')
+endfunction
+
 set laststatus=2
-set statusline+=%7*\[%n]                                  "buffernr
-set statusline+=%1*\ %<%F\                                "File+path
-set statusline+=%2*\ %y\                                  "FileType
-set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
-set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
-set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
-set statusline+=%5*\ %{&spelllang}\												"Spellanguage on?
-set statusline+=%8*\ %=\ row:%l/%L\ (%3p%%)\              "Rownumber/total (%)
-set statusline+=%9*\ col:%003c\                           "Colnr
-set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+set statusline=
+set statusline+=\[%{mode()}\]                 " current mode
+set statusline+=%y                            " filetype
+set statusline+=[buffers]\ %{BufferList()}
+
+set statusline+=%=                            " right-align from now on
+
+set statusline+=[col\ %v                      " column number
+set statusline+=\                             " blank space
+set statusline+=\&                            " colon separator
+set statusline+=\                             " blank space
+set statusline+=loc\ %l]                      " row number
+set statusline+=\                             " blank space
+set statusline+=[TLOC\:%L]                    " number of rows
+set statusline+=\                             " blank space
